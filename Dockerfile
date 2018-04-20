@@ -31,6 +31,8 @@ WORKDIR /opt/bgp
 RUN wget http://data.ris.ripe.net/rrc01/latest-bview.gz
 RUN zcat latest-bview.gz | bgpdump -m - > latest-routes
 
+EXPOSE 179/tcp
+EXPOSE 22/tcp
     
 VOLUME [ "/root", "/usr", "/opt" ]
 CMD [ "sh", "-c", "cd; exec bash -i" ]
