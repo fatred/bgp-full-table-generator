@@ -23,8 +23,8 @@ RUN cp bgpdump /usr/local/bin
 
 # BGPSimple
 WORKDIR /opt/bgp/
-RUN wget http://bgpsimple.googlecode.com/files/bgp_simple.tgz
-RUN tar -zxvf bgp_simple.tgz
+RUN git clone https://github.com/fatred/bgpsimple.git
+RUN cp /opt/bgp/bgpsimple/bgp_simple.pl /opt/bgp/
 
 # BGP Route data
 WORKDIR /opt/bgp
