@@ -19,7 +19,7 @@ RUN tar -zxvf libbgpdump-1.5.0.tgz
 WORKDIR /opt/bgp/libbgpdump-1.5.0/
 RUN ./configure --disable-ipv6
 RUN make
-COPY bgpdump /usr/local/bin
+RUN cp bgpdump /usr/local/bin
 
 # BGPSimple
 WORKDIR /opt/bgp/
