@@ -6,7 +6,7 @@ FROM ubuntu:xenial
 # basic setup
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get -y --no-install-recommends \
     install telnet curl openssh-client nano vim-tiny mtr iputils-ping build-essential \
-    libssl-dev libffi-dev git net-tools software-properties-common \
+    libssl-dev libffi-dev git net-tools software-properties-common wget \
     zlib1g-dev libbz2-dev perl
 RUN rm -rf /var/lib/apt/lists/* 
 RUN cpan install "Net::BGP" 
