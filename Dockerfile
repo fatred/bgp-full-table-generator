@@ -12,7 +12,7 @@ RUN rm -rf /var/lib/apt/lists/*
 RUN cpan install "Net::BGP" 
 
 # BGPDump
-MKDIR /opt/bgp
+RUN mkdir -p /opt/bgp
 WORKDIR /opt/bgp/
 RUN wget http://www.ris.ripe.net/source/bgpdump/libbgpdump-1.5.0.tgz
 RUN tar -zxvf libbgpdump-1.5.0.tgz
