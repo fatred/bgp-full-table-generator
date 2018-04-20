@@ -6,7 +6,7 @@ FROM ubuntu:xenial
 # basic setup
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get -y --no-install-recommends \
     install telnet curl openssh-client nano vim-tiny mtr iputils-ping build-essential \
-    libssl-dev libffi-dev git net-tools software-properties-common wget \
+    libssl-dev libffi-dev git net-tools software-properties-common wget iproute2 \
     zlib1g-dev libbz2-dev perl
 RUN rm -rf /var/lib/apt/lists/* 
 RUN cpan install "Net::BGP" 
@@ -35,4 +35,4 @@ EXPOSE 179/tcp
 EXPOSE 22/tcp
     
 VOLUME [ "/root", "/usr", "/opt" ]
-CMD [ "sh", "-c", "cd; exec bash -i" ]
+CMD [ "bash", "-c", "cd /opt/bgp/; exec /opt/bgp/bgp_simple.pl -myas $MYAS -myip `ip route get 8.8.8.8 | head -1 | cut -d' ' -f8` -peerip $PEERIP -peeras $PEERAS -v -p latest-routes" ]
