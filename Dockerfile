@@ -14,10 +14,10 @@ RUN cpan install "Net::BGP"
 # BGPDump
 RUN mkdir -p /opt/bgp
 WORKDIR /opt/bgp/
-RUN wget http://www.ris.ripe.net/source/bgpdump/libbgpdump-1.5.0.tgz
-RUN tar -zxvf libbgpdump-1.5.0.tgz
-WORKDIR /opt/bgp/libbgpdump-1.5.0/
-RUN ./configure --disable-ipv6
+RUN wget http://www.ris.ripe.net/source/bgpdump/libbgpdump-1.6.0.tgz
+RUN tar -zxvf libbgpdump-1.6.0.tgz
+WORKDIR /opt/bgp/libbgpdump-1.6.0/
+RUN ./configure 
 RUN make
 RUN cp bgpdump /usr/local/bin
 
